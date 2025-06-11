@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plutocracy - Modern Personal Finance Management</title>
+
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/plutocracy/css/plutocracy-theme.css">
+
+    <style>
+        /* Landing page specific styles */
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: white;
+            color: #3a0ca3;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-cta-secondary {
+            display: inline-block;
+            border: 2px solid white;
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .features-section {
+            padding: 5rem 0;
+        }
+
+        .features-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .testimonials-section {
+            padding: 5rem 0;
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="plutocracy-navbar">
+        <div class="plutocracy-container">
+            <div class="navbar-content" style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="navbar-brand" style="display: flex; align-items: center;">
+                    <img src="/plutocracy/images/logo.svg" alt="Plutocracy Logo" height="40" style="margin-right: 10px;">
+                    <span style="font-weight: 700; font-size: 1.5rem;">Plutocracy</span>
+                </div>
+
+                <div class="navbar-menu" style="display: flex;">
+                    <ul style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0;">
+                        <li><a href="#features" style="text-decoration: none; color: var(--text-color); font-weight: 500;">Features</a></li>
+                        <li><a href="#testimonials" style="text-decoration: none; color: var(--text-color); font-weight: 500;">Testimonials</a></li>
+                        <li><a href="#pricing" style="text-decoration: none; color: var(--text-color); font-weight: 500;">Pricing</a></li>
+                        <li><a href="#contact" style="text-decoration: none; color: var(--text-color); font-weight: 500;">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <a href="/plutocracy/login" class="plutocracy-button plutocracy-button-primary" style="text-decoration: none;">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="plutocracy-container">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                <div class="hero-content">
+                    <h1 class="hero-title">Take Control of Your Financial Future</h1>
+                    <p class="hero-subtitle">The modern way to manage your personal finances, track expenses, and achieve your financial goals.</p>
+                    <div>
+                        <a href="/plutocracy/register" class="hero-cta">Get Started</a>
+                        <a href="#features" class="hero-cta-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image" style="max-width: 500px;">
+                    <img src="/plutocracy/images/logo.svg" alt="Financial Dashboard" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="plutocracy-container">
+            <h2 class="features-title">Powerful Financial Tools</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Budget Tracking</h3>
+                    <p>Track your expenses across different categories and understand where your money goes each month.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="feature-title">Financial Goal Setting</h3>
+                    <p>Set specific financial goals and track your progress with visual indicators and milestone alerts.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Notifications</h3>
+                    <p>Get notified about upcoming bills, unusual spending patterns, and when you reach your savings goals.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Bank-Level Security</h3>
+                    <p>Your financial data is protected with state-of-the-art encryption and security measures.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Mobile Friendly</h3>
+                    <p>Access your financial dashboard from any device with our responsive web application.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3 class="feature-title">Financial Notes</h3>
+                    <p>Keep track of important financial information and decisions with our integrated notes system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="plutocracy-container">
+            <h2 class="features-title">What Our Users Say</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <p style="font-style: italic;">"Plutocracy has completely changed how I manage my finances. I can now track all my expenses and income in one place and set realistic financial goals."</p>
+                    <div style="display: flex; align-items: center; margin-top: 1.5rem;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #4361ee; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">JD</div>
+                        <div>
+                            <h4 style="margin: 0;">John Doe</h4>
+                            <p style="margin: 0; opacity: 0.7;">Freelance Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <p style="font-style: italic;">"I've tried many financial apps, but Plutocracy stands out with its intuitive interface and comprehensive features. It's helped me save over $5,000 in just six months!"</p>
+                    <div style="display: flex; align-items: center; margin-top: 1.5rem;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #4cc9f0; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">JS</div>
+                        <div>
+                            <h4 style="margin: 0;">Jane Smith</h4>
+                            <p style="margin: 0; opacity: 0.7;">Marketing Specialist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <p style="font-style: italic;">"The goal-setting feature in Plutocracy has been a game-changer. I'm now on track to buy my first home next year thanks to the clear financial roadmap it provides."</p>
+                    <div style="display: flex; align-items: center; margin-top: 1.5rem;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #3a0ca3; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">RJ</div>
+                        <div>
+                            <h4 style="margin: 0;">Robert Johnson</h4>
+                            <p style="margin: 0; opacity: 0.7;">Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="plutocracy-container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div>
+                    <img src="/plutocracy/images/logo.svg" alt="Plutocracy Logo" height="50" style="filter: brightness(0) invert(1);">
+                    <p style="margin-top: 1rem;">Modern Personal Finance Management System by SpyDev.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plutocracy. All rights reserved. Created by SpyDev.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/plutocracy/js/plutocracy-ui.js"></script>
+</body>
+</html>

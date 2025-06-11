@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="navbar" class="plutocracy-navbar">
+        <div class="plutocracy-container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <a href="/plutocracy/dashboard">
+                        <img src="/plutocracy/images/logo.svg" alt="Plutocracy Logo" height="40">
+                        <span class="brand-text">Plutocracy</span>
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <ul class="nav-links">
+                        <li class="nav-item" th:classappend="${activeTab == 'dashboard'} ? 'active' : ''">
+                            <a href="/plutocracy/dashboard"><i class="fas fa-chart-line"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${activeTab == 'transactions'} ? 'active' : ''">
+                            <a href="/plutocracy/transactions"><i class="fas fa-exchange-alt"></i> Transactions</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${activeTab == 'goals'} ? 'active' : ''">
+                            <a href="/plutocracy/goals"><i class="fas fa-bullseye"></i> Goals</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${activeTab == 'notes'} ? 'active' : ''">
+                            <a href="/plutocracy/notes"><i class="fas fa-sticky-note"></i> Notes</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${activeTab == 'settings'} ? 'active' : ''">
+                            <a href="/plutocracy/settings"><i class="fas fa-cog"></i> Settings</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-expanded="false">
+                            <span class="user-name" th:text="${#authentication.name}">User</span>
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a href="/plutocracy/profile"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="/plutocracy/settings"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form th:action="@{/logout}" method="post">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
